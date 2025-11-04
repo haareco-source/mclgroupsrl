@@ -65,12 +65,31 @@ const MetalurgicaGallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-background relative overflow-hidden">
+        {/* Industrial grid background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 40px),
+                           repeating-linear-gradient(90deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 40px)`
+        }} />
+        
+        {/* Decorative lines */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl blur-xl"></div>
+              <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm">
+                {/* Corner decorations */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary" />
+                <div className="absolute top-2 left-2 w-2 h-2 bg-primary rotate-45" />
+                <div className="absolute top-2 right-2 w-2 h-2 bg-primary rotate-45" />
+                <div className="absolute bottom-2 left-2 w-2 h-2 bg-primary rotate-45" />
+                <div className="absolute bottom-2 right-2 w-2 h-2 bg-primary rotate-45" />
+                
                 <img 
                   src={logoMetalurgica} 
                   alt="Metalúrgica y Construcciones Ledesma" 
@@ -78,7 +97,11 @@ const MetalurgicaGallery = () => {
                 />
               </div>
             </div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+            
+            {/* Horizontal line */}
+            <div className="w-16 h-0.5 bg-primary mb-4 mx-auto" />
+            
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light uppercase tracking-wide">
               Soluciones metalúrgicas especializadas con más de 50 años de experiencia
             </p>
           </div>
@@ -89,15 +112,28 @@ const MetalurgicaGallery = () => {
               return (
                 <Card
                   key={index}
-                  className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-l-4 border-l-primary/20 hover:border-l-primary"
+                  className="group relative overflow-hidden transition-all duration-500 animate-fade-in bg-card/50 backdrop-blur-sm border-2 border-border hover:border-primary hover:shadow-2xl"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary/90 transition-all duration-300">
-                      <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                  {/* Vertical accent bar */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-transparent group-hover:w-2 transition-all duration-300" />
+                  
+                  {/* Corner decoration */}
+                  <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/20 group-hover:border-primary transition-colors duration-300" />
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-primary rotate-45" />
+                  
+                  <CardHeader className="relative">
+                    <div className="w-20 h-20 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary/90 transition-all duration-500 relative overflow-hidden">
+                      <div className="absolute inset-0 border-2 border-foreground/10 group-hover:border-white/20 transition-colors" 
+                           style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }} />
+                      <Icon className="w-10 h-10 text-foreground group-hover:text-white transition-all duration-300 relative z-10 group-hover:rotate-12" />
                     </div>
-                    <CardTitle className="text-xl mb-2 font-semibold text-foreground">{service.title}</CardTitle>
-                    <CardDescription className="text-sm font-light">
+                    
+                    {/* Horizontal line under icon */}
+                    <div className="w-12 h-0.5 bg-primary mb-3" />
+                    
+                    <CardTitle className="text-lg mb-2 font-bold uppercase tracking-tight">{service.title}</CardTitle>
+                    <CardDescription className="text-sm font-light leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
@@ -110,21 +146,38 @@ const MetalurgicaGallery = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
+              className="bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-bold text-lg px-8 py-6 uppercase tracking-wider border-2 border-transparent hover:border-primary relative overflow-hidden group transition-all duration-300"
             >
-              Solicitar Información
+              <span className="relative z-10">Solicitar Información</span>
+              <div className="absolute inset-0 bg-primary transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-muted/30 relative overflow-hidden">
+        {/* Industrial grid background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 40px),
+                           repeating-linear-gradient(90deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 40px)`
+        }} />
+        
+        {/* Decorative lines */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-              Galería de Proyectos
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+            <div className="inline-block mb-4">
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-0.5 bg-primary" />
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight uppercase">
+                  Galería de Proyectos
+                </h2>
+                <div className="w-12 h-0.5 bg-primary" />
+              </div>
+            </div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light uppercase tracking-wide mt-4">
               Trabajos especializados en estructuras metálicas, tanques y montajes industriales
             </p>
           </div>
@@ -133,10 +186,16 @@ const MetalurgicaGallery = () => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-lg cursor-pointer animate-fade-in border border-border/50 hover:border-primary/50 transition-all duration-300"
+                className="group relative overflow-hidden cursor-pointer animate-fade-in border-2 border-border hover:border-primary hover:shadow-2xl transition-all duration-500"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openImage(index)}
               >
+                {/* Corner decorations */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 z-10 group-hover:border-white transition-colors duration-300" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50 z-10 group-hover:border-white transition-colors duration-300" />
+                <div className="absolute top-2 left-2 w-1.5 h-1.5 bg-primary rotate-45 z-10" />
+                <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-primary rotate-45 z-10" />
+                
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={image.src}
@@ -144,9 +203,11 @@ const MetalurgicaGallery = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <p className="text-white font-semibold text-sm">{image.title}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    {/* Horizontal line */}
+                    <div className="w-12 h-0.5 bg-white mb-3" />
+                    <p className="text-white font-bold text-sm uppercase tracking-wide">{image.title}</p>
                   </div>
                 </div>
               </div>
