@@ -61,96 +61,98 @@ const MetalurgicaGallery = () => {
   return <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section - Prominent Display */}
-      <section className="relative py-32 md:py-40 bg-gradient-to-br from-primary/5 via-background to-background overflow-hidden">
-        {/* Industrial grid background */}
-        <div className="absolute inset-0 opacity-[0.05]" style={{
-        backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 30px),
-                           repeating-linear-gradient(90deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 30px)`
-      }} />
+      {/* Hero Section - Main Landing */}
+      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-primary/5 overflow-hidden">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 50px),
+                            repeating-linear-gradient(90deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 50px)`
+        }} />
         
-        {/* Diagonal accent lines */}
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-primary to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary to-primary" />
-        <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent" />
-        <div className="absolute right-0 top-0 w-2 h-full bg-gradient-to-b from-transparent via-primary/50 to-primary" />
+        {/* Diagonal accent */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            {/* Logo Container - Extra Large */}
+        <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="max-w-6xl mx-auto text-center">
+            {/* Logo */}
             <div className="flex justify-center mb-12 animate-fade-in">
-              <div className="relative p-12 md:p-16 border-4 border-primary bg-card shadow-2xl">
-                {/* Enhanced corner decorations */}
-                <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary" />
-                <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-primary" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-primary" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-primary" />
-                <div className="absolute top-3 left-3 w-3 h-3 bg-primary rotate-45" />
-                <div className="absolute top-3 right-3 w-3 h-3 bg-primary rotate-45" />
-                <div className="absolute bottom-3 left-3 w-3 h-3 bg-primary rotate-45" />
-                <div className="absolute bottom-3 right-3 w-3 h-3 bg-primary rotate-45" />
+              <div className="relative p-8 md:p-12 bg-card/80 backdrop-blur-sm border border-primary/20 shadow-xl">
+                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary/40" />
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/40" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary/40" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/40" />
                 
-                {/* Glowing effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 blur-2xl" />
-                
-                <img src={logoMetalurgica} alt="Metalúrgica y Construcciones Ledesma" className="relative h-48 md:h-64 w-auto object-contain filter brightness-110 contrast-110 drop-shadow-2xl" />
+                <img 
+                  src={logoMetalurgica} 
+                  alt="Metalúrgica y Construcciones Ledesma" 
+                  className="h-32 md:h-48 w-auto object-contain" 
+                />
               </div>
             </div>
             
-            {/* Title and Description */}
-            <div className="text-center mb-12 animate-fade-in" style={{
-            animationDelay: '0.2s'
-          }}>
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="w-20 h-1 bg-gradient-to-r from-transparent to-primary" />
-                
-                <div className="w-20 h-1 bg-gradient-to-l from-transparent to-primary" />
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 animate-fade-in uppercase tracking-tight" style={{ animationDelay: '0.1s' }}>
+              Metalúrgica y<br />Construcciones Ledesma
+            </h1>
+            
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-fade-in font-light leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              Más de 50 años de excelencia en soluciones metalúrgicas, 
+              construcciones industriales y montajes de alta complejidad
+            </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <Button 
+                onClick={scrollToContact} 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg px-10 py-6 uppercase tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Solicitar Cotización
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="font-bold text-lg px-10 py-6 uppercase tracking-wide hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                onClick={() => {
+                  document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Ver Proyectos
+              </Button>
+            </div>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="relative p-8 bg-card/60 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 group">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <Award className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-4xl font-black text-foreground mb-2">50+</div>
+                <div className="text-sm text-muted-foreground uppercase tracking-wide font-semibold">Años de Experiencia</div>
               </div>
               
+              <div className="relative p-8 bg-card/60 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 group">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-4xl font-black text-foreground mb-2">100%</div>
+                <div className="text-sm text-muted-foreground uppercase tracking-wide font-semibold">Calidad Garantizada</div>
+              </div>
               
-              
-              <div className="w-24 h-1 bg-primary mb-6 mx-auto" />
-              
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed mb-8">
-                Más de <span className="text-primary font-bold">50 años de experiencia</span> en soluciones metalúrgicas integrales, 
-                construcciones especializadas y montajes industriales de alta complejidad
-              </p>
-              
-              {/* Key Stats */}
-              <div className="grid grid-cols-3 gap-6 md:gap-12 max-w-3xl mx-auto mt-12">
-                <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm animate-fade-in" style={{
-                animationDelay: '0.3s'
-              }}>
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
-                  <Award className="w-10 h-10 md:w-12 md:h-12 text-primary mx-auto mb-3" />
-                  <div className="text-2xl md:text-4xl font-black text-foreground mb-1">50+</div>
-                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wide font-semibold">Años</div>
-                </div>
-                
-                <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm animate-fade-in" style={{
-                animationDelay: '0.4s'
-              }}>
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
-                  <Shield className="w-10 h-10 md:w-12 md:h-12 text-primary mx-auto mb-3" />
-                  <div className="text-2xl md:text-4xl font-black text-foreground mb-1">100%</div>
-                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wide font-semibold">Calidad</div>
-                </div>
-                
-                <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm animate-fade-in" style={{
-                animationDelay: '0.5s'
-              }}>
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
-                  <Users className="w-10 h-10 md:w-12 md:h-12 text-primary mx-auto mb-3" />
-                  <div className="text-2xl md:text-4xl font-black text-foreground mb-1">500+</div>
-                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wide font-semibold">Proyectos</div>
-                </div>
+              <div className="relative p-8 bg-card/60 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 group">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-4xl font-black text-foreground mb-2">500+</div>
+                <div className="text-sm text-muted-foreground uppercase tracking-wide font-semibold">Proyectos Completados</div>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Bottom accent */}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
       </section>
 
       {/* Services Section */}
@@ -223,7 +225,7 @@ const MetalurgicaGallery = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
+      <section id="proyectos" className="py-24 bg-muted/30 relative overflow-hidden">
         {/* Industrial grid background */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 40px),
