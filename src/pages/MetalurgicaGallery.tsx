@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { X, ChevronLeft, ChevronRight, Building, Container, Cable } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Building, Container, Cable, Award, Shield, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoMetalurgica from "@/assets/logo-mcl-3d.png";
@@ -65,6 +65,99 @@ const MetalurgicaGallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
+      {/* Hero Section - Prominent Display */}
+      <section className="relative py-32 md:py-40 bg-gradient-to-br from-primary/5 via-background to-background overflow-hidden">
+        {/* Industrial grid background */}
+        <div className="absolute inset-0 opacity-[0.05]" style={{
+          backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 30px),
+                           repeating-linear-gradient(90deg, hsl(var(--foreground)) 0px, transparent 1px, transparent 30px)`
+        }} />
+        
+        {/* Diagonal accent lines */}
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-primary to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary to-primary" />
+        <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent" />
+        <div className="absolute right-0 top-0 w-2 h-full bg-gradient-to-b from-transparent via-primary/50 to-primary" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            {/* Logo Container - Extra Large */}
+            <div className="flex justify-center mb-12 animate-fade-in">
+              <div className="relative p-12 md:p-16 border-4 border-primary bg-card shadow-2xl">
+                {/* Enhanced corner decorations */}
+                <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary" />
+                <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-primary" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-primary" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-primary" />
+                <div className="absolute top-3 left-3 w-3 h-3 bg-primary rotate-45" />
+                <div className="absolute top-3 right-3 w-3 h-3 bg-primary rotate-45" />
+                <div className="absolute bottom-3 left-3 w-3 h-3 bg-primary rotate-45" />
+                <div className="absolute bottom-3 right-3 w-3 h-3 bg-primary rotate-45" />
+                
+                {/* Glowing effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 blur-2xl" />
+                
+                <img 
+                  src={logoMetalurgica} 
+                  alt="Metalúrgica y Construcciones Ledesma" 
+                  className="relative h-48 md:h-64 w-auto object-contain filter brightness-110 contrast-110 drop-shadow-2xl"
+                />
+              </div>
+            </div>
+            
+            {/* Title and Description */}
+            <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="w-20 h-1 bg-gradient-to-r from-transparent to-primary" />
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground uppercase tracking-tight">
+                  MCL
+                </h1>
+                <div className="w-20 h-1 bg-gradient-to-l from-transparent to-primary" />
+              </div>
+              
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-6 uppercase tracking-wider">
+                Metalúrgica y Construcciones Ledesma
+              </h2>
+              
+              <div className="w-24 h-1 bg-primary mb-6 mx-auto" />
+              
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium leading-relaxed mb-8">
+                Más de <span className="text-primary font-bold">50 años de experiencia</span> en soluciones metalúrgicas integrales, 
+                construcciones especializadas y montajes industriales de alta complejidad
+              </p>
+              
+              {/* Key Stats */}
+              <div className="grid grid-cols-3 gap-6 md:gap-12 max-w-3xl mx-auto mt-12">
+                <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
+                  <Award className="w-10 h-10 md:w-12 md:h-12 text-primary mx-auto mb-3" />
+                  <div className="text-2xl md:text-4xl font-black text-foreground mb-1">50+</div>
+                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wide font-semibold">Años</div>
+                </div>
+                
+                <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
+                  <Shield className="w-10 h-10 md:w-12 md:h-12 text-primary mx-auto mb-3" />
+                  <div className="text-2xl md:text-4xl font-black text-foreground mb-1">100%</div>
+                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wide font-semibold">Calidad</div>
+                </div>
+                
+                <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary" />
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary" />
+                  <Users className="w-10 h-10 md:w-12 md:h-12 text-primary mx-auto mb-3" />
+                  <div className="text-2xl md:text-4xl font-black text-foreground mb-1">500+</div>
+                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wide font-semibold">Proyectos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
       <section className="py-24 bg-background relative overflow-hidden">
         {/* Industrial grid background */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -78,31 +171,17 @@ const MetalurgicaGallery = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
-            <div className="flex justify-center mb-8">
-              <div className="relative p-6 border-2 border-primary/30 bg-card/50 backdrop-blur-sm">
-                {/* Corner decorations */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary" />
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary" />
-                <div className="absolute top-2 left-2 w-2 h-2 bg-primary rotate-45" />
-                <div className="absolute top-2 right-2 w-2 h-2 bg-primary rotate-45" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 bg-primary rotate-45" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 bg-primary rotate-45" />
-                
-                <img 
-                  src={logoMetalurgica} 
-                  alt="Metalúrgica y Construcciones Ledesma" 
-                  className="relative h-32 w-auto object-contain filter brightness-110 contrast-110"
-                />
+            <div className="inline-block mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-16 h-1 bg-primary" />
+                <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight uppercase">
+                  Capacidades Principales
+                </h2>
+                <div className="w-16 h-1 bg-primary" />
               </div>
             </div>
-            
-            {/* Horizontal line */}
-            <div className="w-16 h-0.5 bg-primary mb-4 mx-auto" />
-            
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light uppercase tracking-wide">
-              Soluciones metalúrgicas especializadas con más de 50 años de experiencia
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-medium mt-4">
+              Soluciones integrales para la industria con tecnología de vanguardia
             </p>
           </div>
 
@@ -142,19 +221,19 @@ const MetalurgicaGallery = () => {
             })}
           </div>
 
-          <div className="text-center mb-24">
+          <div className="text-center">
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-foreground text-background hover:bg-primary hover:text-primary-foreground font-bold text-lg px-8 py-6 uppercase tracking-wider border-2 border-transparent hover:border-primary relative overflow-hidden group transition-all duration-300"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-black text-xl px-12 py-8 uppercase tracking-wider shadow-2xl hover:shadow-primary/50 transition-all duration-300 border-2 border-primary hover:scale-105"
             >
-              <span className="relative z-10">Solicitar Información</span>
-              <div className="absolute inset-0 bg-primary transform translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
+              Solicitar Cotización Personalizada
             </Button>
           </div>
         </div>
       </section>
 
+      {/* Gallery Section */}
       <section className="py-24 bg-muted/30 relative overflow-hidden">
         {/* Industrial grid background */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -169,16 +248,16 @@ const MetalurgicaGallery = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-block mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-12 h-0.5 bg-primary" />
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight uppercase">
-                  Galería de Proyectos
+              <div className="flex items-center gap-3">
+                <div className="w-16 h-1 bg-primary" />
+                <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight uppercase">
+                  Proyectos Destacados
                 </h2>
-                <div className="w-12 h-0.5 bg-primary" />
+                <div className="w-16 h-1 bg-primary" />
               </div>
             </div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light uppercase tracking-wide mt-4">
-              Trabajos especializados en estructuras metálicas, tanques y montajes industriales
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-medium mt-4">
+              Experiencia comprobada en obras de alta complejidad y exigencia técnica
             </p>
           </div>
 
