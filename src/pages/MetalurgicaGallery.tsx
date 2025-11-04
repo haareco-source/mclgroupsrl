@@ -74,7 +74,7 @@ const MetalurgicaGallery = () => {
                 <img 
                   src={logoMetalurgica} 
                   alt="Metalúrgica y Construcciones Ledesma" 
-                  className="relative h-20 w-auto object-contain filter brightness-110 contrast-110"
+                  className="relative h-32 w-auto object-contain filter brightness-110 contrast-110"
                 />
               </div>
             </div>
