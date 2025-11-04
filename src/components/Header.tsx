@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logoMCLGroup from "@/assets/logo-mcl-group.jpg";
 
 const Header = () => {
@@ -26,10 +33,15 @@ const Header = () => {
 
   const navItems = [
     { label: "Inicio", id: "hero" },
-    { label: "Negocios", id: "negocios" },
     { label: "Proyectos", id: "proyectos" },
     { label: "Nosotros", id: "nosotros" },
     { label: "Contacto", id: "contacto" },
+  ];
+
+  const businessUnits = [
+    { name: "MCL Constructora", path: "/mcl-constructora/galeria" },
+    { name: "Metalúrgica Ledesma", path: "/metalurgica/galeria" },
+    { name: "Ferrenort", path: "/ferrenort/galeria" },
   ];
 
   return (
@@ -67,6 +79,26 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
+            
+            {/* Negocios Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-secondary transition-colors font-medium">
+                Negocios
+                <ChevronDown size={16} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {businessUnits.map((business) => (
+                  <DropdownMenuItem key={business.path} asChild>
+                    <Link 
+                      to={business.path}
+                      className="cursor-pointer"
+                    >
+                      {business.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           {/* CTA Button */}
@@ -101,6 +133,22 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
+              
+              {/* Negocios Mobile */}
+              <div className="border-t border-border pt-4">
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Negocios</p>
+                {businessUnits.map((business) => (
+                  <Link
+                    key={business.path}
+                    to={business.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-left text-foreground hover:text-secondary transition-colors font-medium py-2"
+                  >
+                    {business.name}
+                  </Link>
+                ))}
+              </div>
+              
               <Button
                 onClick={() => scrollToSection("contacto")}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-2 shadow-md hover:shadow-lg transition-all"
