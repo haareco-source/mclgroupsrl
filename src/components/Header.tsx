@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoMCLGroup from "@/assets/logo-mcl-group.jpg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,9 +46,13 @@ const Header = () => {
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-2xl font-bold text-primary hover:text-secondary transition-colors"
+              className="flex items-center hover:opacity-80 transition-opacity"
             >
-              MCL GROUP SRL
+              <img 
+                src={logoMCLGroup} 
+                alt="MCL GROUP SRL" 
+                className="h-12 w-auto"
+              />
             </button>
           </div>
 

@@ -8,6 +8,7 @@ import {
   Settings,
   Hammer
 } from "lucide-react";
+import logoFerrenort from "@/assets/logo-ferrenort.jpg";
 
 const Ferrenort = () => {
   const categories = [
@@ -84,11 +85,12 @@ const Ferrenort = () => {
     <section id="ferrenort" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Wrench className="w-10 h-10 text-secondary" />
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              FERRENORT
-            </h2>
+          <div className="flex justify-center mb-6">
+            <img 
+              src={logoFerrenort} 
+              alt="FERRENORT Ferretería Industrial" 
+              className="h-24 w-auto"
+            />
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ferretería Industrial - Todo lo que necesitas para tu obra o industria
