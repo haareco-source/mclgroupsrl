@@ -70,7 +70,7 @@ const BusinessUnits = () => {
                     variant="outline"
                     className="w-full border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
                   >
-                    Ver Detalles
+                    Entrar
                   </Button>
                 </CardContent>
               </Card>
