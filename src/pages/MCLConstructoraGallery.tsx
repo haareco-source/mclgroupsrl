@@ -86,18 +86,6 @@ const MCLConstructoraGallery = () => {
 
         <div className="container mx-auto px-4 relative z-0">
           <div className="text-center animate-fade-in">
-            {/* Logo */}
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-2xl"></div>
-                <img 
-                  src={logoConstructora} 
-                  alt="MCL Constructora y Servicios" 
-                  className="relative h-24 md:h-32 w-auto object-contain"
-                />
-              </div>
-            </div>
-
             {/* Título Principal */}
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent leading-tight">
               MCL Constructora<br />y Servicios

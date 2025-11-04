@@ -74,22 +74,6 @@ const MetalurgicaGallery = () => {
         
         <div className="container mx-auto px-4 py-20 relative z-0">
           <div className="max-w-6xl mx-auto text-center">
-            {/* Logo */}
-            <div className="flex justify-center mb-12 animate-fade-in">
-              <div className="relative p-8 md:p-12 bg-card/80 backdrop-blur-sm border border-primary/20 shadow-xl">
-                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary/40" />
-                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary/40" />
-                <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary/40" />
-                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary/40" />
-                
-                <img 
-                  src={logoMetalurgica} 
-                  alt="Metalúrgica y Construcciones Ledesma" 
-                  className="h-32 md:h-48 w-auto object-contain" 
-                />
-              </div>
-            </div>
-            
             {/* Main Headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 animate-fade-in uppercase tracking-tight" style={{ animationDelay: '0.1s' }}>
               Metalúrgica y<br />Construcciones Ledesma
