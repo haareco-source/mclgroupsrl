@@ -8,9 +8,12 @@ import {
   Settings,
   Hammer
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import logoFerrenort from "@/assets/logo-ferrenort.jpg";
 
 const Ferrenort = () => {
+  const navigate = useNavigate();
+  
   const categories = [
     {
       icon: Wrench,
@@ -132,7 +135,7 @@ const Ferrenort = () => {
 
         <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            onClick={() => window.location.href = '/ferrenort/galeria'}
+            onClick={() => navigate('/ferrenort/galeria')}
             size="lg"
             variant="outline"
             className="border-secondary/30 hover:bg-secondary hover:text-secondary-foreground hover:border-secondary font-semibold"

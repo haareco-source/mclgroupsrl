@@ -1,9 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Factory, Building, Container, Cable } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import logoMetalurgica from "@/assets/logo-metalurgica.jpg";
 
 const Metalurgica = () => {
+  const navigate = useNavigate();
+  
   const services = [
     {
       icon: Building,
@@ -79,7 +82,7 @@ const Metalurgica = () => {
 
         <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            onClick={() => window.location.href = '/metalurgica/galeria'}
+            onClick={() => navigate('/metalurgica/galeria')}
             size="lg"
             variant="outline"
             className="border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary font-semibold"

@@ -1,9 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building, Hammer, Wrench, Cog } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import logoConstructora from "@/assets/logo-constructora.jpg";
 
 const MCLConstructora = () => {
+  const navigate = useNavigate();
+  
   const services = [
     {
       icon: Building,
@@ -86,7 +89,7 @@ const MCLConstructora = () => {
 
         <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            onClick={() => window.location.href = '/mcl-constructora/galeria'}
+            onClick={() => navigate('/mcl-constructora/galeria')}
             size="lg"
             variant="outline"
             className="border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary font-semibold"
