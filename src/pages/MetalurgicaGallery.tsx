@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { X, ChevronLeft, ChevronRight, Building, Container, Cable } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import logoMetalurgica from "@/assets/logo-metalurgica.jpg";
+import logoMetalurgica from "@/assets/logo-mcl-3d.png";
 import work2 from "@/assets/gallery/work-2.jpg";
 import work3 from "@/assets/gallery/work-3.jpg";
 import work4 from "@/assets/gallery/work-4.jpg";
