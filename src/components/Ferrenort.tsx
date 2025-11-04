@@ -85,14 +85,17 @@ const Ferrenort = () => {
     <section id="ferrenort" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <div className="flex justify-center mb-6">
-            <img 
-              src={logoFerrenort} 
-              alt="FERRENORT Ferretería Industrial" 
-              className="h-24 w-auto"
-            />
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent rounded-xl blur-xl"></div>
+              <img 
+                src={logoFerrenort} 
+                alt="FERRENORT Ferretería Industrial" 
+                className="relative h-16 w-auto object-contain filter brightness-110 contrast-110"
+              />
+            </div>
           </div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
             Ferretería Industrial - Todo lo que necesitas para tu obra o industria
           </p>
         </div>
@@ -103,14 +106,14 @@ const Ferrenort = () => {
             return (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 animate-fade-in"
+                className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-l-4 border-l-secondary/20 hover:border-l-secondary"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:text-white transition-all">
-                    <Icon className="w-7 h-7" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded flex items-center justify-center mb-4 group-hover:from-secondary group-hover:to-secondary/90 group-hover:text-white transition-all duration-300">
+                    <Icon className="w-6 h-6 text-secondary group-hover:text-white transition-colors" />
                   </div>
-                  <CardTitle className="text-xl">{category.title}</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-foreground">{category.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
@@ -131,7 +134,7 @@ const Ferrenort = () => {
           <Button
             onClick={scrollToContact}
             size="lg"
-            className="bg-secondary hover:bg-secondary/90 text-foreground font-semibold"
+            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
           >
             Consultar Disponibilidad
           </Button>

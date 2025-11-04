@@ -46,12 +46,12 @@ const Header = () => {
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection("hero")}
-              className="flex items-center hover:opacity-80 transition-opacity"
+              className="flex items-center hover:opacity-90 transition-all duration-300 hover:scale-105"
             >
               <img 
                 src={logoMCLGroup} 
                 alt="MCL GROUP SRL" 
-                className="h-12 w-auto"
+                className="h-14 w-auto object-contain brightness-100 contrast-125"
               />
             </button>
           </div>
@@ -73,7 +73,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button
               onClick={() => scrollToSection("contacto")}
-              className="bg-secondary hover:bg-secondary/90 text-foreground font-semibold"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
             >
               Solicitar Cotización
             </Button>
@@ -103,7 +103,7 @@ const Header = () => {
               ))}
               <Button
                 onClick={() => scrollToSection("contacto")}
-                className="bg-secondary hover:bg-secondary/90 text-foreground font-semibold mt-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-2 shadow-md hover:shadow-lg transition-all"
               >
                 Solicitar Cotización
               </Button>

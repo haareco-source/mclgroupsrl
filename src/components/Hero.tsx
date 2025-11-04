@@ -21,31 +21,34 @@ const Hero = () => {
           alt="Industrial construction site"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-steel-gray/95 via-steel-gray/85 to-steel-gray/70" style={{ background: 'linear-gradient(135deg, hsl(220 15% 10% / 0.95) 0%, hsl(220 15% 25% / 0.85) 50%, hsl(220 15% 15% / 0.75) 100%)' }}></div>
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <div className="inline-block mb-4 px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">50+ Años de Experiencia</span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
             MCL GROUP SRL
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-            Más de 50 años de experiencia integrando 3 negocios: Construcción, Metalurgia y Ferretería Industrial
+          <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-2xl font-light">
+            Integrando 3 negocios: Construcción, Metalurgia y Ferretería Industrial
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
-              onClick={() => scrollToSection("servicios")}
+              onClick={() => scrollToSection("negocios")}
               size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-foreground font-semibold text-lg px-8 py-6"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
             >
-              Ver Servicios
+              Ver Negocios
             </Button>
             <Button
               onClick={() => scrollToSection("contacto")}
               size="lg"
               variant="outline"
-              className="bg-white/10 hover:bg-white/20 text-white border-white/30 font-semibold text-lg px-8 py-6 backdrop-blur-sm"
+              className="bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/40 font-semibold text-lg px-8 py-6 backdrop-blur-sm transition-all"
             >
               Contactar
             </Button>

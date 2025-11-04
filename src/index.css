@@ -8,88 +8,91 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    /* Industrial color palette - sobrio e innovador */
+    --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 210 52% 22%;
+    --primary: 0 84% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 42 55% 53%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 42 55% 53%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 0 84% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 52% 22%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 0 84% 45%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
     /* Industrial design tokens */
-    --steel-blue: 210 52% 22%;
-    --steel-blue-light: 210 52% 35%;
-    --steel-blue-dark: 210 52% 15%;
-    --industrial-gold: 42 55% 53%;
-    --industrial-gold-light: 42 55% 65%;
-    --dark-bg: 222 47% 7%;
+    --steel-gray: 220 15% 20%;
+    --steel-gray-light: 220 15% 35%;
+    --steel-gray-dark: 220 15% 10%;
+    --industrial-red: 0 84% 45%;
+    --industrial-red-light: 0 84% 55%;
+    --concrete-gray: 220 10% 92%;
+    --metal-shine: 0 0% 85%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210 52% 15%) 0%, hsl(210 52% 25%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(210 52% 22%) 0%, hsl(210 52% 35%) 100%);
+    /* Gradients - estilo industrial */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 10%) 0%, hsl(220 15% 25%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);
+    --gradient-metal: linear-gradient(135deg, hsl(220 15% 90%) 0%, hsl(220 15% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0 84% 45%) 0%, hsl(0 84% 55%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px hsl(210 52% 22% / 0.08);
-    --shadow-medium: 0 4px 16px hsl(210 52% 22% / 0.12);
-    --shadow-strong: 0 8px 24px hsl(210 52% 22% / 0.16);
-    --shadow-glow: 0 0 32px hsl(42 55% 53% / 0.2);
+    /* Shadows - sutiles y profesionales */
+    --shadow-soft: 0 2px 8px hsl(220 15% 15% / 0.06);
+    --shadow-medium: 0 4px 16px hsl(220 15% 15% / 0.10);
+    --shadow-strong: 0 8px 32px hsl(220 15% 15% / 0.12);
+    --shadow-industrial: 0 10px 40px hsl(220 15% 15% / 0.15);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.15s ease;
   }
 
   .dark {
-    --background: 222 47% 7%;
+    --background: 220 15% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 222 47% 11%;
+    --card: 220 15% 15%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 220 15% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 42 55% 53%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 0 84% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 52% 35%;
+    --secondary: 220 15% 25%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 217 33% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 42 55% 53%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 0 84% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
+    --destructive: 0 63% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 42 55% 53%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 0 84% 50%;
   }
 }
 
