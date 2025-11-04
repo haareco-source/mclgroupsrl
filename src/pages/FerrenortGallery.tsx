@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { X, ChevronLeft, ChevronRight, Wrench, HardHat, Lightbulb, Package, Settings, Hammer } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoFerrenort from "@/assets/logo-ferrenort.jpg";
@@ -10,9 +11,79 @@ import work9 from "@/assets/gallery/work-9.jpg";
 const FerrenortGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
+  const categories = [
+    {
+      icon: Wrench,
+      title: "Herramientas",
+      items: [
+        "Herramientas manuales",
+        "Herramientas eléctricas",
+        "Herramientas neumáticas",
+        "Medición y nivelación"
+      ],
+    },
+    {
+      icon: Settings,
+      title: "Máquinas y Equipos",
+      items: [
+        "Compresores",
+        "Generadores",
+        "Soldadoras",
+        "Equipos de corte"
+      ],
+    },
+    {
+      icon: Hammer,
+      title: "Fijación y Sujeción",
+      items: [
+        "Tornillos y tuercas",
+        "Pernos y arandelas",
+        "Clavos y grapas",
+        "Anclajes químicos"
+      ],
+    },
+    {
+      icon: Package,
+      title: "Materiales de Construcción",
+      items: [
+        "Hierros y aceros",
+        "Perfiles estructurales",
+        "Chapas y planchuelas",
+        "Tubos y caños"
+      ],
+    },
+    {
+      icon: HardHat,
+      title: "Seguridad Industrial",
+      items: [
+        "EPP completo",
+        "Cascos y guantes",
+        "Arneses y líneas de vida",
+        "Señalización"
+      ],
+    },
+    {
+      icon: Lightbulb,
+      title: "Suministros Varios",
+      items: [
+        "Iluminación industrial",
+        "Cables y conectores",
+        "Pinturas y revestimientos",
+        "Abrasivos y consumibles"
+      ],
+    },
+  ];
+
   const images = [
     { src: work9, title: "Transporte de maquinaria pesada - Equipos industriales" },
   ];
+
+  const scrollToContact = () => {
+    const element = document.getElementById("contacto");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const openImage = (index: number) => setSelectedImage(index);
   const closeImage = () => setSelectedImage(null);
@@ -33,7 +104,7 @@ const FerrenortGallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="py-24">
+      <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <div className="flex justify-center mb-8">
@@ -46,11 +117,61 @@ const FerrenortGallery = () => {
                 />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-              Equipos y Servicios
-            </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-              Galería de equipos industriales y servicios especializados
+              Ferretería Industrial - Todo lo que necesitas para tu obra o industria
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {categories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <Card
+                  key={index}
+                  className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-l-4 border-l-secondary/20 hover:border-l-secondary"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded flex items-center justify-center mb-4 group-hover:from-secondary group-hover:to-secondary/90 group-hover:text-white transition-all duration-300">
+                      <Icon className="w-6 h-6 text-secondary group-hover:text-white transition-colors" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-foreground">{category.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {category.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+                          <span className="text-sm text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center mb-24">
+            <Button
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
+            >
+              Consultar Disponibilidad
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              Galería de Equipos
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              Equipos industriales y servicios especializados
             </p>
           </div>
 

@@ -1,14 +1,17 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building2, Wrench, Factory } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const BusinessUnits = () => {
+  const navigate = useNavigate();
+  
   const businesses = [
     {
       icon: Building2,
       name: "MCL Constructora y Servicios",
       description: "Obras civiles, montajes industriales, reformas y mantenimiento",
-      link: "mcl-constructora",
+      link: "/mcl-constructora/galeria",
       color: "bg-primary/10",
       iconColor: "text-primary",
     },
@@ -16,7 +19,7 @@ const BusinessUnits = () => {
       icon: Wrench,
       name: "FERRENORT",
       description: "Ferretería industrial con amplio stock de herramientas y suministros",
-      link: "ferrenort",
+      link: "/ferrenort/galeria",
       color: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -24,18 +27,11 @@ const BusinessUnits = () => {
       icon: Factory,
       name: "Metalúrgica y Construcciones Ledesma",
       description: "Soluciones metalúrgicas y construcciones especializadas",
-      link: "metalurgica",
+      link: "/metalurgica/galeria",
       color: "bg-accent/10",
       iconColor: "text-accent",
     },
   ];
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section id="negocios" className="py-24 bg-muted/30">
@@ -70,7 +66,7 @@ const BusinessUnits = () => {
                 </CardHeader>
                 <CardContent>
                   <Button
-                    onClick={() => scrollToSection(business.link)}
+                    onClick={() => navigate(business.link)}
                     variant="outline"
                     className="w-full border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
                   >

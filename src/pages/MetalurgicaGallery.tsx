@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { X, ChevronLeft, ChevronRight, Building, Container, Cable } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoMetalurgica from "@/assets/logo-metalurgica.jpg";
@@ -13,12 +14,37 @@ import work10 from "@/assets/gallery/work-10.jpg";
 const MetalurgicaGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
+  const services = [
+    {
+      icon: Building,
+      title: "Estructura Metálica para Planta Industrial",
+      description: "Fabricación e instalación de estructura de 500 toneladas",
+    },
+    {
+      icon: Container,
+      title: "Tanques de Almacenamiento Industrial",
+      description: "Fabricación de tanques de acero inoxidable para industria química",
+    },
+    {
+      icon: Cable,
+      title: "Puente Grúa Industrial",
+      description: "Fabricación y montaje de puente grúa de 20 toneladas",
+    },
+  ];
+
   const images = [
     { src: work2, title: "Instalación de tuberías industriales" },
     { src: work3, title: "Montaje de sistemas de tuberías" },
     { src: work4, title: "Fabricación de tuberías especiales" },
     { src: work10, title: "Montaje con grúa - Proyectos de gran envergadura" },
   ];
+
+  const scrollToContact = () => {
+    const element = document.getElementById("contacto");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const openImage = (index: number) => setSelectedImage(index);
   const closeImage = () => setSelectedImage(null);
@@ -39,7 +65,7 @@ const MetalurgicaGallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="py-24">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <div className="flex justify-center mb-8">
@@ -52,11 +78,54 @@ const MetalurgicaGallery = () => {
                 />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-              Proyectos Metalúrgicos
-            </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-              Galería de trabajos especializados en estructuras metálicas, tanques y montajes industriales
+              Soluciones metalúrgicas especializadas con más de 50 años de experiencia
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Card
+                  key={index}
+                  className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-l-4 border-l-primary/20 hover:border-l-primary"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary/90 transition-all duration-300">
+                      <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <CardTitle className="text-xl mb-2 font-semibold text-foreground">{service.title}</CardTitle>
+                    <CardDescription className="text-sm font-light">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center mb-24">
+            <Button
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
+            >
+              Solicitar Información
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              Galería de Proyectos
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              Trabajos especializados en estructuras metálicas, tanques y montajes industriales
             </p>
           </div>
 

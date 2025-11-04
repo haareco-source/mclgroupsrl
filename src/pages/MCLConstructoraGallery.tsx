@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { X, ChevronLeft, ChevronRight, Building, Cog, Wrench } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoConstructora from "@/assets/logo-constructora.jpg";
@@ -14,6 +15,27 @@ import work8 from "@/assets/gallery/work-8.jpg";
 const MCLConstructoraGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
+  const services = [
+    {
+      icon: Building,
+      title: "Obras Civiles",
+      description: "Construcción de edificios industriales, galpones y estructuras civiles",
+      items: ["Fundaciones", "Estructuras de hormigón", "Mampostería", "Techados"],
+    },
+    {
+      icon: Cog,
+      title: "Montajes Industriales",
+      description: "Instalación y montaje de equipos y maquinaria industrial",
+      items: ["Montaje de equipos", "Instalaciones mecánicas", "Sistemas de transporte", "Calibración"],
+    },
+    {
+      icon: Wrench,
+      title: "Reformas y Mantenimiento",
+      description: "Renovación y mantenimiento preventivo de instalaciones",
+      items: ["Mantenimiento preventivo", "Reparaciones", "Ampliaciones", "Modernizaciones"],
+    },
+  ];
+
   const images = [
     { src: work1, title: "Trabajo en altura - Instalaciones industriales" },
     { src: work7, title: "Estructura metálica - Construcción de cobertizo" },
@@ -21,6 +43,13 @@ const MCLConstructoraGallery = () => {
     { src: work5, title: "Tanque de almacenamiento industrial" },
     { src: work6, title: "Instalaciones en taller industrial" },
   ];
+
+  const scrollToContact = () => {
+    const element = document.getElementById("contacto");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const openImage = (index: number) => setSelectedImage(index);
   const closeImage = () => setSelectedImage(null);
@@ -41,7 +70,7 @@ const MCLConstructoraGallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="py-24">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <div className="flex justify-center mb-8">
@@ -54,11 +83,64 @@ const MCLConstructoraGallery = () => {
                 />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-              Nuestros Proyectos
-            </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-              Galería de obras civiles, montajes industriales y estructuras metálicas realizadas
+              Especialistas en obras civiles, montajes industriales y mantenimiento integral
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Card
+                  key={index}
+                  className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-l-4 border-l-primary/20 hover:border-l-primary"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary/90 group-hover:text-white transition-all duration-300">
+                      <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <CardTitle className="text-xl mb-2 font-semibold text-foreground">{service.title}</CardTitle>
+                    <CardDescription className="text-sm font-light">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {service.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+                          <span className="text-sm text-muted-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center mb-24">
+            <Button
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            >
+              Solicitar Presupuesto
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              Galería de Proyectos
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              Obras civiles, montajes industriales y estructuras metálicas realizadas
             </p>
           </div>
 
