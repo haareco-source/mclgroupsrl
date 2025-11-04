@@ -1,6 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import BusinessUnits from "@/components/BusinessUnits";
+import MCLConstructora from "@/components/MCLConstructora";
+import Ferrenort from "@/components/Ferrenort";
+import Metalurgica from "@/components/Metalurgica";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
@@ -12,7 +15,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <Services />
+      <BusinessUnits />
+      <MCLConstructora />
+      <Ferrenort />
+      <Metalurgica />
       <WhyChooseUs />
       <Projects />
       <Testimonials />
