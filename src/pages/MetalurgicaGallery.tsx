@@ -72,7 +72,7 @@ const MetalurgicaGallery = () => {
         {/* Diagonal accent */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
         
-        <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="container mx-auto px-4 py-20 relative z-0">
           <div className="max-w-6xl mx-auto text-center">
             {/* Logo */}
             <div className="flex justify-center mb-12 animate-fade-in">

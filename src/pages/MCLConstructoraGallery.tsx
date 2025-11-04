@@ -84,7 +84,7 @@ const MCLConstructoraGallery = () => {
         {/* Diagonal Accent */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-primary/5 to-transparent transform skew-x-12"></div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-0">
           <div className="text-center animate-fade-in">
             {/* Logo */}
             <div className="flex justify-center mb-8">
