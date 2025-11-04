@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { X, ChevronLeft, ChevronRight, Building, Cog, Wrench } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Building, Cog, Wrench, Award, Shield, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoConstructora from "@/assets/logo-constructora.jpg";
@@ -44,12 +44,18 @@ const MCLConstructoraGallery = () => {
     { src: work6, title: "Instalaciones en taller industrial" },
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById("contacto");
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const stats = [
+    { icon: Award, label: "30+ Años", sublabel: "De Experiencia" },
+    { icon: Shield, label: "100%", sublabel: "Calidad Garantizada" },
+    { icon: Users, label: "300+", sublabel: "Proyectos Completados" },
+  ];
 
   const openImage = (index: number) => setSelectedImage(index);
   const closeImage = () => setSelectedImage(null);
@@ -70,21 +76,88 @@ const MCLConstructoraGallery = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
+        {/* Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+        
+        {/* Diagonal Accent */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-primary/5 to-transparent transform skew-x-12"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center animate-fade-in">
+            {/* Logo */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl blur-xl"></div>
+                <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-2xl"></div>
                 <img 
                   src={logoConstructora} 
                   alt="MCL Constructora y Servicios" 
-                  className="relative h-20 w-auto object-contain filter brightness-110 contrast-110"
+                  className="relative h-24 md:h-32 w-auto object-contain"
                 />
               </div>
             </div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+
+            {/* Título Principal */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent leading-tight">
+              MCL Constructora<br />y Servicios
+            </h1>
+
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 font-light">
               Especialistas en obras civiles, montajes industriales y mantenimiento integral
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button
+                onClick={() => scrollToSection("contacto")}
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+              >
+                Solicitar Cotización
+              </Button>
+              <Button
+                onClick={() => scrollToSection("proyectos")}
+                size="lg"
+                variant="outline"
+                className="font-semibold text-lg px-8 py-6 border-2 hover:bg-muted"
+              >
+                Ver Proyectos
+              </Button>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <Icon className="w-8 h-8 mx-auto mb-3 text-primary group-hover:scale-110 transition-transform" />
+                    <div className="text-3xl font-bold mb-1" style={{ color: "hsl(var(--foreground))" }}>
+                      {stat.label}
+                    </div>
+                    <div className="text-sm text-muted-foreground">{stat.sublabel}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              Nuestros Servicios
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              Soluciones integrales para la industria y construcción
             </p>
           </div>
 
@@ -121,19 +194,11 @@ const MCLConstructoraGallery = () => {
             })}
           </div>
 
-          <div className="text-center mb-24">
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-            >
-              Solicitar Presupuesto
-            </Button>
-          </div>
         </div>
       </section>
 
-      <section className="py-24 bg-muted/30">
+      {/* Gallery Section */}
+      <section id="proyectos" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
