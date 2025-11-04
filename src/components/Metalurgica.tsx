@@ -77,7 +77,15 @@ const Metalurgica = () => {
           })}
         </div>
 
-        <div className="text-center">
+        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            onClick={() => window.location.href = '/metalurgica/galeria'}
+            size="lg"
+            variant="outline"
+            className="border-primary/30 hover:bg-primary hover:text-primary-foreground hover:border-primary font-semibold"
+          >
+            Ver Galería de Proyectos
+          </Button>
           <Button
             onClick={scrollToContact}
             size="lg"

@@ -130,7 +130,15 @@ const Ferrenort = () => {
           })}
         </div>
 
-        <div className="text-center">
+        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            onClick={() => window.location.href = '/ferrenort/galeria'}
+            size="lg"
+            variant="outline"
+            className="border-secondary/30 hover:bg-secondary hover:text-secondary-foreground hover:border-secondary font-semibold"
+          >
+            Ver Equipos
+          </Button>
           <Button
             onClick={scrollToContact}
             size="lg"

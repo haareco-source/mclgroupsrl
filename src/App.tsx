@@ -4,6 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import MCLConstructoraGallery from "./pages/MCLConstructoraGallery";
+import MetalurgicaGallery from "./pages/MetalurgicaGallery";
+import FerrenortGallery from "./pages/FerrenortGallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,6 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/mcl-constructora/galeria" element={<MCLConstructoraGallery />} />
+          <Route path="/metalurgica/galeria" element={<MetalurgicaGallery />} />
+          <Route path="/ferrenort/galeria" element={<FerrenortGallery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
