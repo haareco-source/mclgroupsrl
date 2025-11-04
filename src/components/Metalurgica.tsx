@@ -1,8 +1,32 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Factory } from "lucide-react";
+import { Factory, Building, Container, Cable } from "lucide-react";
 
 const Metalurgica = () => {
+  const services = [
+    {
+      icon: Building,
+      title: "Estructura Metálica para Planta Industrial",
+      description: "Fabricación e instalación de estructura de 500 toneladas",
+      color: "bg-accent/10",
+      iconColor: "text-accent",
+    },
+    {
+      icon: Container,
+      title: "Tanques de Almacenamiento Industrial",
+      description: "Fabricación de tanques de acero inoxidable para industria química",
+      color: "bg-accent/10",
+      iconColor: "text-accent",
+    },
+    {
+      icon: Cable,
+      title: "Puente Grúa Industrial",
+      description: "Fabricación y montaje de puente grúa de 20 toneladas",
+      color: "bg-accent/10",
+      iconColor: "text-accent",
+    },
+  ];
+
   const scrollToContact = () => {
     const element = document.getElementById("contacto");
     if (element) {
@@ -25,25 +49,39 @@ const Metalurgica = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
-            <CardHeader className="text-center">
-              <CardTitle className="text-3xl mb-4">Servicios Metalúrgicos</CardTitle>
-              <CardDescription className="text-lg">
-                Brindamos soluciones integrales en el área metalúrgica con tecnología de punta
-                y personal altamente capacitado
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="text-center pt-6">
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 animate-fade-in border-accent/20"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                Solicitar Información
-              </Button>
-            </CardContent>
-          </Card>
+                <CardHeader>
+                  <div
+                    className={`w-16 h-16 ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  >
+                    <Icon className={`w-8 h-8 ${service.iconColor}`} />
+                  </div>
+                  <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
+                  <CardDescription className="text-base">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            );
+          })}
+        </div>
+
+        <div className="text-center">
+          <Button
+            onClick={scrollToContact}
+            size="lg"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+          >
+            Solicitar Información
+          </Button>
         </div>
       </div>
     </section>
