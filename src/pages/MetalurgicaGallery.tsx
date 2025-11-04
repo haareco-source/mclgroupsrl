@@ -83,24 +83,17 @@ const MetalurgicaGallery = () => {
           <div className="max-w-5xl mx-auto">
             {/* Logo Container - Extra Large */}
             <div className="flex justify-center mb-12 animate-fade-in">
-              <div className="relative p-12 md:p-16 border-4 border-primary bg-card shadow-2xl">
-                {/* Enhanced corner decorations */}
-                <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-primary" />
-                <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-primary" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-primary" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-primary" />
-                <div className="absolute top-3 left-3 w-3 h-3 bg-primary rotate-45" />
-                <div className="absolute top-3 right-3 w-3 h-3 bg-primary rotate-45" />
-                <div className="absolute bottom-3 left-3 w-3 h-3 bg-primary rotate-45" />
-                <div className="absolute bottom-3 right-3 w-3 h-3 bg-primary rotate-45" />
-                
-                {/* Glowing effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 blur-2xl" />
+              <div className="relative p-8 md:p-12 bg-card border border-primary/20 shadow-xl">
+                {/* Simple corner accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary" />
                 
                 <img 
                   src={logoMetalurgica} 
                   alt="Metalúrgica y Construcciones Ledesma" 
-                  className="relative h-48 md:h-64 w-auto object-contain filter brightness-110 contrast-110 drop-shadow-2xl"
+                  className="h-48 md:h-64 w-auto object-contain"
                 />
               </div>
             </div>
