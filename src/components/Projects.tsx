@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -9,21 +10,25 @@ const Projects = () => {
       image: project1,
       title: "Montaje Industrial",
       description: "Estructuras metálicas y soldadura especializada",
+      link: "/proyectos/montaje-industrial",
     },
     {
       image: project2,
       title: "Sistema de Piping",
       description: "Instalación de cañerías industriales",
+      link: "/proyectos/sistema-piping",
     },
     {
       image: project3,
       title: "Obra Civil",
       description: "Construcción de estructuras de hormigón",
+      link: "/proyectos/obra-civil",
     },
     {
       image: project4,
       title: "Aislamiento Térmico",
       description: "Revestimiento de equipos industriales",
+      link: "/proyectos/aislamiento-termico",
     },
   ];
 
@@ -58,8 +63,9 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={index}
+              to={project.link}
               className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-scale-in border-2 border-border hover:border-primary"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -83,7 +89,7 @@ const Projects = () => {
                   <p className="text-sm text-white/90">{project.description}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

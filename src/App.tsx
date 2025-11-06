@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import MCLConstructoraGallery from "./pages/MCLConstructoraGallery";
 import MetalurgicaGallery from "./pages/MetalurgicaGallery";
 import FerrenortGallery from "./pages/FerrenortGallery";
+import MontajeIndustrial from "./pages/MontajeIndustrial";
+import SistemaPiping from "./pages/SistemaPiping";
+import ObraCivil from "./pages/ObraCivil";
+import AislamientoTermico from "./pages/AislamientoTermico";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +26,10 @@ const App = () => (
           <Route path="/mcl-constructora/galeria" element={<MCLConstructoraGallery />} />
           <Route path="/metalurgica/galeria" element={<MetalurgicaGallery />} />
           <Route path="/ferrenort/galeria" element={<FerrenortGallery />} />
+          <Route path="/proyectos/montaje-industrial" element={<MontajeIndustrial />} />
+          <Route path="/proyectos/sistema-piping" element={<SistemaPiping />} />
+          <Route path="/proyectos/obra-civil" element={<ObraCivil />} />
+          <Route path="/proyectos/aislamiento-termico" element={<AislamientoTermico />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
