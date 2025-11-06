@@ -3,6 +3,20 @@ import logoFerrenort from "@/assets/logo-ferrenort.jpg";
 import logoMcl3d from "@/assets/logo-mcl-3d.png";
 import logoMclGroup from "@/assets/logo-mcl-group.jpg";
 import logoMetalurgica from "@/assets/logo-metalurgica.jpg";
+import logoLedesma from "@/assets/partners/logo-ledesma.png";
+import logoSullair from "@/assets/partners/logo-sullair.png";
+import logoSulvy from "@/assets/partners/logo-sulvy.png";
+import logoSantander from "@/assets/partners/logo-santander.png";
+import logoPluspetrol from "@/assets/partners/logo-pluspetrol.png";
+import logoMacro from "@/assets/partners/logo-macro.png";
+import logoEjesa from "@/assets/partners/logo-ejesa.png";
+import logoEjesedsa from "@/assets/partners/logo-ejesedsa.png";
+import logoLaMendieta from "@/assets/partners/logo-la-mendieta.png";
+import logoSanMartin from "@/assets/partners/logo-san-martin.png";
+import logoEcos from "@/assets/partners/logo-ecos.png";
+import logoRiverPlate from "@/assets/partners/logo-river-plate.png";
+import logoPalmaSola from "@/assets/partners/logo-palma-sola.png";
+import logoDiocesisJujuy from "@/assets/partners/logo-diocesis-jujuy.png";
 
 const Partners = () => {
   const partners = [
@@ -11,6 +25,20 @@ const Partners = () => {
     { name: "MCL 3D", logo: logoMcl3d },
     { name: "MCL Group", logo: logoMclGroup },
     { name: "Metalúrgica", logo: logoMetalurgica },
+    { name: "Ledesma", logo: logoLedesma },
+    { name: "Sullair Argentina", logo: logoSullair },
+    { name: "Sulvy", logo: logoSulvy },
+    { name: "Banco Santander", logo: logoSantander },
+    { name: "Pluspetrol", logo: logoPluspetrol },
+    { name: "Banco Macro", logo: logoMacro },
+    { name: "EJESA", logo: logoEjesa },
+    { name: "EJESEDSA", logo: logoEjesedsa },
+    { name: "La Mendieta", logo: logoLaMendieta },
+    { name: "Municipalidad Libertador Gral. San Martín", logo: logoSanMartin },
+    { name: "ECOS SA", logo: logoEcos },
+    { name: "Fundación River Plate", logo: logoRiverPlate },
+    { name: "Palma Sola", logo: logoPalmaSola },
+    { name: "Diócesis de Jujuy", logo: logoDiocesisJujuy },
   ];
 
   return (
