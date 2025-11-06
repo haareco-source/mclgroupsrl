@@ -1,7 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageLightbox from "@/components/ImageLightbox";
 import piping1 from "@/assets/projects/piping-1.jpg";
 import piping2 from "@/assets/projects/piping-2.jpg";
 import piping3 from "@/assets/projects/piping-3.jpg";
@@ -10,6 +12,8 @@ import piping5 from "@/assets/projects/piping-5.jpg";
 import piping6 from "@/assets/projects/piping-6.jpg";
 
 const SistemaPiping = () => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  
   const images = [
     { src: piping1, title: "Instalación de Tuberías Industriales" },
     { src: piping2, title: "Red Compleja de Piping" },
@@ -18,6 +22,18 @@ const SistemaPiping = () => {
     { src: piping5, title: "Pruebas de Presión" },
     { src: piping6, title: "Sistema de Piping Completado" },
   ];
+
+  const handleNext = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + images.length) % images.length);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -60,7 +76,8 @@ const SistemaPiping = () => {
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-border hover:border-primary"
+                  onClick={() => setSelectedImageIndex(index)}
+                  className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-border hover:border-primary cursor-pointer"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 z-10" />
@@ -86,6 +103,16 @@ const SistemaPiping = () => {
             </div>
           </div>
         </section>
+
+        {selectedImageIndex !== null && (
+          <ImageLightbox
+            images={images}
+            currentIndex={selectedImageIndex}
+            onClose={() => setSelectedImageIndex(null)}
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
+        )}
 
         {/* CTA Section */}
         <section className="py-16 bg-muted/30">

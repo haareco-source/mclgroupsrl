@@ -1,7 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageLightbox from "@/components/ImageLightbox";
 import civil1 from "@/assets/projects/civil-1.jpg";
 import civil2 from "@/assets/projects/civil-2.jpg";
 import civil3 from "@/assets/projects/civil-3.jpg";
@@ -10,6 +12,8 @@ import civil5 from "@/assets/projects/civil-5.jpg";
 import civil6 from "@/assets/projects/civil-6.jpg";
 
 const ObraCivil = () => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  
   const images = [
     { src: civil1, title: "Construcción de Fundaciones" },
     { src: civil2, title: "Estructura de Hormigón Armado" },
@@ -18,6 +22,18 @@ const ObraCivil = () => {
     { src: civil5, title: "Estructura Multi-nivel" },
     { src: civil6, title: "Inspección de Calidad" },
   ];
+
+  const handleNext = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + images.length) % images.length);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -60,7 +76,8 @@ const ObraCivil = () => {
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-border hover:border-primary"
+                  onClick={() => setSelectedImageIndex(index)}
+                  className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-border hover:border-primary cursor-pointer"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 z-10" />
@@ -86,6 +103,16 @@ const ObraCivil = () => {
             </div>
           </div>
         </section>
+
+        {selectedImageIndex !== null && (
+          <ImageLightbox
+            images={images}
+            currentIndex={selectedImageIndex}
+            onClose={() => setSelectedImageIndex(null)}
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
+        )}
 
         {/* CTA Section */}
         <section className="py-16 bg-muted/30">
