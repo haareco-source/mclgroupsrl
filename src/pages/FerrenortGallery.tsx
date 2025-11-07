@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { X, ChevronLeft, ChevronRight, Wrench, HardHat, Lightbulb, Package, Settings, Hammer, Award, Shield, Users } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Wrench, HardHat, Lightbulb, Package, Settings, Hammer, Award, Shield, Users, MapPin, Phone, Clock, Factory } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import logoFerrenort from "@/assets/logo-ferrenort.jpg";
+import logoFerrenort from "@/assets/logo-ferrenort-nuevo.jpeg";
 import work9 from "@/assets/gallery/work-9.jpg";
 
 const FerrenortGallery = () => {
@@ -91,6 +91,17 @@ const FerrenortGallery = () => {
     { icon: Users, label: "1000+", sublabel: "Clientes Satisfechos" },
   ];
 
+  const brands = [
+    "DeWalt", "Bosch", "Makita", "Stanley", "Black+Decker", "Truper", 
+    "Milwaukee", "Karcher", "Lincoln", "Irwin", "3M", "Bauker"
+  ];
+
+  const contactInfo = [
+    { icon: MapPin, label: "Dirección", value: "Jujuy, Argentina" },
+    { icon: Phone, label: "WhatsApp", value: "+54 9 388 123-4567" },
+    { icon: Clock, label: "Horario", value: "Lun-Vie: 8:00-18:00, Sáb: 8:00-13:00" },
+  ];
+
   const openImage = (index: number) => setSelectedImage(index);
   const closeImage = () => setSelectedImage(null);
   
@@ -111,22 +122,24 @@ const FerrenortGallery = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
-        {/* Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
-        
-        {/* Diagonal Accent */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-secondary/5 to-transparent transform skew-x-12"></div>
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-ferrenort-red/5 via-background to-ferrenort-green/5">
+        {/* Diagonal Accents */}
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-br from-ferrenort-yellow/10 to-transparent transform -skew-x-12"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-ferrenort-green/10 to-transparent transform skew-x-12"></div>
 
-        <div className="container mx-auto px-4 relative z-0">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center animate-fade-in">
-            {/* Título Principal */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent leading-tight">
-              FERRENORT
-            </h1>
+            {/* Logo */}
+            <div className="mb-8 flex justify-center">
+              <img src={logoFerrenort} alt="Ferrenort Logo" className="h-32 md:h-40 w-auto object-contain" />
+            </div>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 font-light">
-              Ferretería Industrial - Todo lo que necesitas para tu obra o industria
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-6 font-light">
+              One-Stop Tools Station
+            </p>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+              Tu ferretería industrial de confianza. Amplio stock de herramientas, materiales y equipos para la industria y construcción.
             </p>
 
             {/* CTAs */}
@@ -134,17 +147,24 @@ const FerrenortGallery = () => {
               <Button
                 onClick={() => scrollToSection("contacto")}
                 size="lg"
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+                className="bg-ferrenort-red hover:bg-ferrenort-red/90 text-white font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
               >
-                Consultar Disponibilidad
+                Contactar Ahora
               </Button>
               <Button
                 onClick={() => scrollToSection("productos")}
                 size="lg"
-                variant="outline"
-                className="font-semibold text-lg px-8 py-6 border-2 hover:bg-muted"
+                className="bg-ferrenort-green hover:bg-ferrenort-green/90 text-white font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
               >
-                Ver Productos
+                Ver Catálogo
+              </Button>
+              <Button
+                onClick={() => scrollToSection("marcas")}
+                size="lg"
+                variant="outline"
+                className="font-semibold text-lg px-8 py-6 border-2 border-ferrenort-yellow hover:bg-ferrenort-yellow/10"
+              >
+                Nuestras Marcas
               </Button>
             </div>
 
@@ -152,14 +172,22 @@ const FerrenortGallery = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
+                const colors = ['ferrenort-red', 'ferrenort-green', 'ferrenort-yellow'];
+                const bgColor = colors[index % 3];
                 return (
                   <div
                     key={index}
-                    className="group bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-lg animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="group bg-card/80 backdrop-blur-sm rounded-xl p-6 border-2 border-transparent hover:border-current transition-all duration-300 hover:shadow-lg animate-fade-in"
+                    style={{ 
+                      animationDelay: `${index * 0.1}s`,
+                      borderColor: index === 0 ? 'hsl(var(--ferrenort-red) / 0.3)' : index === 1 ? 'hsl(var(--ferrenort-green) / 0.3)' : 'hsl(var(--ferrenort-yellow) / 0.3)'
+                    }}
                   >
-                    <Icon className="w-8 h-8 mx-auto mb-3 text-secondary group-hover:scale-110 transition-transform" />
-                    <div className="text-3xl font-bold mb-1" style={{ color: "hsl(var(--foreground))" }}>
+                    <Icon 
+                      className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" 
+                      style={{ color: index === 0 ? 'hsl(var(--ferrenort-red))' : index === 1 ? 'hsl(var(--ferrenort-green))' : 'hsl(var(--ferrenort-yellow))' }}
+                    />
+                    <div className="text-3xl font-bold mb-1 text-foreground">
                       {stat.label}
                     </div>
                     <div className="text-sm text-muted-foreground">{stat.sublabel}</div>
@@ -175,26 +203,39 @@ const FerrenortGallery = () => {
       <section id="productos" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight bg-gradient-to-r from-ferrenort-red via-ferrenort-green to-ferrenort-yellow bg-clip-text text-transparent">
               Nuestros Productos
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
-              Amplio catálogo de herramientas y materiales industriales
+              Amplio catálogo de herramientas y materiales industriales de las mejores marcas
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {categories.map((category, index) => {
               const Icon = category.icon;
+              const colors = ['ferrenort-red', 'ferrenort-green', 'ferrenort-yellow'];
+              const color = colors[index % 3];
               return (
                 <Card
                   key={index}
-                  className="group hover:shadow-lg transition-all duration-300 animate-fade-in border-l-4 border-l-secondary/20 hover:border-l-secondary"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="group hover:shadow-xl transition-all duration-300 animate-fade-in border-l-4 hover:scale-105"
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    borderLeftColor: index % 3 === 0 ? 'hsl(var(--ferrenort-red))' : index % 3 === 1 ? 'hsl(var(--ferrenort-green))' : 'hsl(var(--ferrenort-yellow))'
+                  }}
                 >
                   <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded flex items-center justify-center mb-4 group-hover:from-secondary group-hover:to-secondary/90 group-hover:text-white transition-all duration-300">
-                      <Icon className="w-6 h-6 text-secondary group-hover:text-white transition-colors" />
+                    <div 
+                      className="w-12 h-12 rounded flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300"
+                      style={{ 
+                        backgroundColor: index % 3 === 0 ? 'hsl(var(--ferrenort-red) / 0.1)' : index % 3 === 1 ? 'hsl(var(--ferrenort-green) / 0.1)' : 'hsl(var(--ferrenort-yellow) / 0.1)'
+                      }}
+                    >
+                      <Icon 
+                        className="w-6 h-6" 
+                        style={{ color: index % 3 === 0 ? 'hsl(var(--ferrenort-red))' : index % 3 === 1 ? 'hsl(var(--ferrenort-green))' : 'hsl(var(--ferrenort-yellow))' }}
+                      />
                     </div>
                     <CardTitle className="text-lg font-semibold text-foreground">{category.title}</CardTitle>
                   </CardHeader>
@@ -202,7 +243,10 @@ const FerrenortGallery = () => {
                     <ul className="space-y-2">
                       {category.items.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+                          <div 
+                            className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                            style={{ backgroundColor: index % 3 === 0 ? 'hsl(var(--ferrenort-red))' : index % 3 === 1 ? 'hsl(var(--ferrenort-green))' : 'hsl(var(--ferrenort-yellow))' }}
+                          ></div>
                           <span className="text-sm text-muted-foreground">{item}</span>
                         </li>
                       ))}
@@ -212,15 +256,43 @@ const FerrenortGallery = () => {
               );
             })}
           </div>
+        </div>
+      </section>
 
+      {/* Brands Section */}
+      <section id="marcas" className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <Factory className="w-16 h-16 mx-auto mb-4 text-ferrenort-green" />
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-foreground">
+              Marcas de Calidad
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              Trabajamos con las marcas más reconocidas del mercado
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+            {brands.map((brand, index) => (
+              <div
+                key={index}
+                className="group bg-card border-2 border-border hover:border-ferrenort-red rounded-lg p-6 flex items-center justify-center transition-all duration-300 hover:shadow-lg animate-fade-in hover:scale-105"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                <span className="font-bold text-lg text-center text-muted-foreground group-hover:text-ferrenort-red transition-colors">
+                  {brand}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section id="galeria" className="py-24 bg-background">
+      <section id="galeria" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-foreground">
               Galería de Equipos
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
@@ -232,7 +304,7 @@ const FerrenortGallery = () => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-lg cursor-pointer animate-fade-in border border-border/50 hover:border-secondary/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-lg cursor-pointer animate-fade-in border-2 border-border hover:border-ferrenort-yellow transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openImage(index)}
               >
@@ -243,7 +315,7 @@ const FerrenortGallery = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-ferrenort-red/80 via-ferrenort-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <p className="text-white font-semibold text-sm">{image.title}</p>
                   </div>
@@ -254,6 +326,64 @@ const FerrenortGallery = () => {
 
           <div className="text-center mt-12">
             <p className="text-muted-foreground">Más imágenes próximamente</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contacto" className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-foreground">
+              Contacto
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              Visitanos o comunicate con nosotros para consultas y presupuestos
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {contactInfo.map((info, index) => {
+              const Icon = info.icon;
+              const colors = ['ferrenort-red', 'ferrenort-green', 'ferrenort-yellow'];
+              return (
+                <Card
+                  key={index}
+                  className="group text-center hover:shadow-xl transition-all duration-300 animate-fade-in border-2 hover:scale-105"
+                  style={{ 
+                    animationDelay: `${index * 0.1}s`,
+                    borderColor: index === 0 ? 'hsl(var(--ferrenort-red) / 0.3)' : index === 1 ? 'hsl(var(--ferrenort-green) / 0.3)' : 'hsl(var(--ferrenort-yellow) / 0.3)'
+                  }}
+                >
+                  <CardHeader>
+                    <div 
+                      className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                      style={{ 
+                        backgroundColor: index === 0 ? 'hsl(var(--ferrenort-red) / 0.1)' : index === 1 ? 'hsl(var(--ferrenort-green) / 0.1)' : 'hsl(var(--ferrenort-yellow) / 0.1)'
+                      }}
+                    >
+                      <Icon 
+                        className="w-8 h-8"
+                        style={{ color: index === 0 ? 'hsl(var(--ferrenort-red))' : index === 1 ? 'hsl(var(--ferrenort-green))' : 'hsl(var(--ferrenort-yellow))' }}
+                      />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-foreground">{info.label}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{info.value}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-ferrenort-red via-ferrenort-green to-ferrenort-yellow hover:opacity-90 text-white font-semibold text-lg px-12 py-6 shadow-lg hover:shadow-xl transition-all"
+            >
+              Enviar Consulta por WhatsApp
+            </Button>
           </div>
         </div>
       </section>

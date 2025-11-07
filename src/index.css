@@ -48,6 +48,12 @@ All colors MUST be HSL.
     --concrete-gray: 220 10% 92%;
     --metal-shine: 0 0% 85%;
     
+    /* Ferrenort color palette */
+    --ferrenort-red: 2 81% 50%;
+    --ferrenort-green: 153 100% 26%;
+    --ferrenort-yellow: 43 98% 49%;
+    --ferrenort-dark: 0 0% 20%;
+    
     /* Gradients - estilo industrial */
     --gradient-hero: linear-gradient(135deg, hsl(220 15% 10%) 0%, hsl(220 15% 25%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);

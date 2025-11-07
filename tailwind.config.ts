@@ -57,6 +57,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        'ferrenort-red': 'hsl(var(--ferrenort-red))',
+        'ferrenort-green': 'hsl(var(--ferrenort-green))',
+        'ferrenort-yellow': 'hsl(var(--ferrenort-yellow))',
+        'ferrenort-dark': 'hsl(var(--ferrenort-dark))',
       },
       borderRadius: {
         lg: "var(--radius)",
