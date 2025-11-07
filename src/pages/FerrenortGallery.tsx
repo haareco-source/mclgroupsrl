@@ -74,7 +74,7 @@ const FerrenortGallery = () => {
     { icon: Award, label: "20+ Años", sublabel: "En el Mercado" },
     { icon: Shield, label: "5000+", sublabel: "Productos Disponibles" },
     { icon: Users, label: "1000+", sublabel: "Clientes Satisfechos" },
-    { icon: Tools, label: "TOTAL TOOLS", sublabel: "Representante Oficial" },
+    { icon: Wrench, label: "TOTAL TOOLS", sublabel: "Representante Oficial" },
   ];
 
   const brands = [
