@@ -1,8 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, Wrench } from "lucide-react";
+import { Building2, Wrench, Cog } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import mclLogo from "@/assets/logo-mcl-3d.png";
 
 const BusinessUnits = () => {
   const navigate = useNavigate();
@@ -13,21 +12,18 @@ const BusinessUnits = () => {
       name: "MCL Constructora y Servicios",
       description: "Obras civiles, montajes industriales, reformas y mantenimiento",
       link: "/mcl-constructora/galeria",
-      useImage: false,
     },
     {
       icon: Wrench,
       name: "FERRENORT",
       description: "Ferretería industrial con amplio stock de herramientas y suministros",
       link: "/ferrenort/galeria",
-      useImage: false,
     },
     {
+      icon: Cog,
       name: "Metalúrgica y Construcciones Ledesma",
       description: "Soluciones metalúrgicas y construcciones especializadas",
       link: "/metalurgica/galeria",
-      useImage: true,
-      image: mclLogo,
     },
   ];
 
@@ -77,24 +73,14 @@ const BusinessUnits = () => {
                 <div className="absolute top-2 right-2 w-2 h-2 bg-primary rotate-45" />
                 
                 <CardHeader className="relative">
-                  {business.useImage ? (
-                    <div className="w-full h-32 flex items-center justify-center mb-4 p-4 bg-background/50 rounded-lg border border-border group-hover:border-primary transition-all duration-300">
-                      <img 
-                        src={business.image} 
-                        alt={business.name}
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-16 h-16 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary/90 transition-all duration-500 relative overflow-hidden">
-                      <div className="absolute inset-0 border-2 border-foreground/10 group-hover:border-white/20 transition-colors" 
-                           style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }} />
-                      <Icon className="w-8 h-8 text-foreground group-hover:text-white transition-all duration-300 relative z-10 group-hover:rotate-12" />
-                    </div>
-                  )}
-                  
-                  {/* Horizontal line under icon */}
-                  <div className="w-12 h-0.5 bg-primary mb-3" />
+                <div className="w-16 h-16 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-primary/90 transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute inset-0 border-2 border-foreground/10 group-hover:border-white/20 transition-colors" 
+                       style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }} />
+                  <Icon className="w-8 h-8 text-foreground group-hover:text-white transition-all duration-300 relative z-10 group-hover:rotate-12" />
+                </div>
+                
+                {/* Horizontal line under icon */}
+                <div className="w-12 h-0.5 bg-primary mb-3" />
                   
                   <CardTitle className="text-xl mb-2 font-bold uppercase tracking-tight">
                     {business.name}
