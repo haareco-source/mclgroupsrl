@@ -55,9 +55,15 @@ const Contact = () => {
     },
     {
       icon: Mail,
-      title: "Email",
+      title: "Email Personal",
       content: "claudiolizarraga@gmail.com",
       link: "mailto:claudiolizarraga@gmail.com",
+    },
+    {
+      icon: Mail,
+      title: "Email Empresas",
+      content: "empresas@mclgroupsrl.com.ar",
+      link: "mailto:empresas@mclgroupsrl.com.ar",
     },
     {
       icon: Clock,
