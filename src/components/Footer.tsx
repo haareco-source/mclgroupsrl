@@ -53,6 +53,14 @@ const Footer = () => {
               </li>
               <li>
                 <button
+                  onClick={() => scrollToSection("quienes-somos")}
+                  className="text-white/80 hover:text-secondary transition-colors"
+                >
+                  Nosotros
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => scrollToSection("negocios")}
                   className="text-white/80 hover:text-secondary transition-colors"
                 >
@@ -98,6 +106,14 @@ const Footer = () => {
                   className="hover:text-secondary transition-colors"
                 >
                   claudiolizarraga@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:empresas@mclgroupsrl.com.ar"
+                  className="hover:text-secondary transition-colors"
+                >
+                  empresas@mclgroupsrl.com.ar
                 </a>
               </li>
               <li className="pt-2">
