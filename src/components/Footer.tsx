@@ -1,12 +1,9 @@
 import { Facebook, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useScrollNavigation } from "@/hooks/useScrollNavigation";
 
 const Footer = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const scrollToSection = useScrollNavigation();
 
   return (
     <footer className="bg-primary text-white py-12">
@@ -14,7 +11,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">MCL GROUP SRL</h3>
+            <Link to="/" className="inline-block">
+              <h3 className="text-2xl font-bold mb-4 hover:text-white/90 transition-colors">MCL GROUP SRL</h3>
+            </Link>
             <p className="text-white/80 mb-4 max-w-md">
               Metalúrgica y Construcciones Ledesma. Más de 50 años brindando
               soluciones industriales integrales en el norte argentino.

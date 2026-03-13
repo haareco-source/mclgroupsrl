@@ -3,6 +3,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { X, ChevronLeft, ChevronRight, Building, Cog, Wrench, Award, Shield, Users } from "lucide-react";
+import { useScrollNavigation } from "@/hooks/useScrollNavigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoConstructora from "@/assets/logo-constructora.jpg";
@@ -44,7 +45,9 @@ const MCLConstructoraGallery = () => {
     { src: work6, title: "Instalaciones en taller industrial" },
   ];
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useScrollNavigation();
+
+  const scrollToLocalSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -98,14 +101,14 @@ const MCLConstructoraGallery = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button
-                onClick={() => scrollToSection("contacto")}
+                onClick={() => scrollToSection("contacto")}  // navigates to homepage contact
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
               >
                 Solicitar Cotización
               </Button>
               <Button
-                onClick={() => scrollToSection("proyectos")}
+                onClick={() => scrollToLocalSection("proyectos")}
                 size="lg"
                 variant="outline"
                 className="font-semibold text-lg px-8 py-6 border-2 hover:bg-muted"

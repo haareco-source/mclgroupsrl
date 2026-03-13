@@ -3,6 +3,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { X, ChevronLeft, ChevronRight, Building, Container, Cable, Award, Shield, Users } from "lucide-react";
+import { useScrollNavigation } from "@/hooks/useScrollNavigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoMetalurgica from "@/assets/logo-mcl-3d.png";
@@ -38,12 +39,12 @@ const MetalurgicaGallery = () => {
     src: work10,
     title: "Montaje con grúa - Proyectos de gran envergadura"
   }];
-  const scrollToContact = () => {
-    const element = document.getElementById("contacto");
+  const scrollToSection = useScrollNavigation();
+  const scrollToContact = () => scrollToSection("contacto");
+  const scrollToLocalSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
   const openImage = (index: number) => setSelectedImage(index);
@@ -98,9 +99,7 @@ const MetalurgicaGallery = () => {
                 variant="outline" 
                 size="lg" 
                 className="font-bold text-lg px-10 py-6 uppercase tracking-wide hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                onClick={() => {
-                  document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => scrollToLocalSection('proyectos')}
               >
                 Ver Proyectos
               </Button>
