@@ -3,6 +3,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { X, ChevronLeft, ChevronRight, Building, Cog, Wrench, Award, Shield, Users } from "lucide-react";
+import { useScrollNavigation } from "@/hooks/useScrollNavigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import logoConstructora from "@/assets/logo-constructora.jpg";
