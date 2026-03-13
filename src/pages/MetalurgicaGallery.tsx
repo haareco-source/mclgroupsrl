@@ -39,12 +39,12 @@ const MetalurgicaGallery = () => {
     src: work10,
     title: "Montaje con grúa - Proyectos de gran envergadura"
   }];
-  const scrollToContact = () => {
-    const element = document.getElementById("contacto");
+  const scrollToSection = useScrollNavigation();
+  const scrollToContact = () => scrollToSection("contacto");
+  const scrollToLocalSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
   const openImage = (index: number) => setSelectedImage(index);
