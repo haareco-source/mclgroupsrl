@@ -129,7 +129,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-secondary hover:bg-secondary/90 text-foreground font-semibold"
+                  className="w-full bg-secondary hover:bg-secondary/90 text-foreground hover:text-white font-semibold transition-colors duration-200"
                 >
                   Enviar Consulta por WhatsApp
                 </Button>
