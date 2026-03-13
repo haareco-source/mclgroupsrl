@@ -99,9 +99,7 @@ const MetalurgicaGallery = () => {
                 variant="outline" 
                 size="lg" 
                 className="font-bold text-lg px-10 py-6 uppercase tracking-wide hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                onClick={() => {
-                  document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => scrollToLocalSection('proyectos')}
               >
                 Ver Proyectos
               </Button>

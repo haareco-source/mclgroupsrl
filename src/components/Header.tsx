@@ -8,11 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useScrollNavigation } from "@/hooks/useScrollNavigation";
 import logoMCLGroup from "@/assets/logo-mcl-group.jpg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollToSection = useScrollNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +25,9 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+  const handleNav = (id: string) => {
+    scrollToSection(id);
+    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -56,8 +55,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <button
-              onClick={() => scrollToSection("hero")}
+            <Link
+              to="/"
               className="flex items-center hover:opacity-90 transition-all duration-300 hover:scale-105"
             >
               <img 
@@ -65,7 +64,7 @@ const Header = () => {
                 alt="MCL GROUP SRL" 
                 className="h-14 w-auto object-contain brightness-100 contrast-125"
               />
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -73,7 +72,7 @@ const Header = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNav(item.id)}
                 className="text-foreground hover:text-secondary transition-colors font-medium"
               >
                 {item.label}
@@ -104,7 +103,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button
-              onClick={() => scrollToSection("contacto")}
+              onClick={() => handleNav("contacto")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all"
             >
               Solicitar Cotización
@@ -127,7 +126,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNav(item.id)}
                   className="text-left text-foreground hover:text-secondary transition-colors font-medium py-2"
                 >
                   {item.label}
@@ -150,7 +149,7 @@ const Header = () => {
               </div>
               
               <Button
-                onClick={() => scrollToSection("contacto")}
+                onClick={() => handleNav("contacto")}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-2 shadow-md hover:shadow-lg transition-all"
               >
                 Solicitar Cotización

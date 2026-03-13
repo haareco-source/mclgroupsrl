@@ -108,7 +108,7 @@ const MCLConstructoraGallery = () => {
                 Solicitar Cotización
               </Button>
               <Button
-                onClick={() => scrollToSection("proyectos")}
+                onClick={() => scrollToLocalSection("proyectos")}
                 size="lg"
                 variant="outline"
                 className="font-semibold text-lg px-8 py-6 border-2 hover:bg-muted"
