@@ -45,7 +45,9 @@ const MCLConstructoraGallery = () => {
     { src: work6, title: "Instalaciones en taller industrial" },
   ];
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useScrollNavigation();
+
+  const scrollToLocalSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
