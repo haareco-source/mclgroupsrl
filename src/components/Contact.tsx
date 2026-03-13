@@ -172,9 +172,9 @@ const Contact = () => {
                 <h3 className="font-bold text-foreground text-lg mb-2">Respuesta Inmediata</h3>
                 <p className="text-foreground/80 mb-4">Chatea con nosotros por WhatsApp</p>
                 <Button
-                  onClick={() => window.open("https://wa.me/5493886011111", "_blank")}
+                  onClick={() => window.open("https://wa.me/5493886404154", "_blank")}
                   size="lg"
-                  className="w-full bg-foreground text-background hover:bg-foreground/90"
+                  className="w-full bg-green-500 text-white hover:bg-green-600 transition-all duration-200 hover:scale-105 shadow-md"
                 >
                   Abrir WhatsApp
                 </Button>
