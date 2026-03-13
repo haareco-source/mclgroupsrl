@@ -17,7 +17,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -50,8 +50,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Teléfono",
-      content: "+54 9 3886 011111",
-      link: "tel:+5493886011111",
+      content: "+54 9 3886 404154",
+      link: "tel:+5493886404154",
     },
     {
       icon: Mail,
@@ -68,7 +68,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Horario",
-      content: "Lunes a Viernes: 8:00 - 18:00",
+      content: "Lunes a Viernes: 8:00 - 12:00 & 14:00 - 20:00",
     },
   ];
 
@@ -76,9 +76,7 @@ const Contact = () => {
     <section id="contacto" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Contactanos
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Contactanos</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Estamos listos para atender su consulta y comenzar su proyecto
           </p>
@@ -90,55 +88,39 @@ const Contact = () => {
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Nombre Completo *
-                  </label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Nombre Completo *</label>
                   <Input
                     type="text"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Juan Pérez"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Email *
-                  </label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
                   <Input
                     type="email"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="juan@empresa.com"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Teléfono
-                  </label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Teléfono</label>
                   <Input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+54 9 388 xxxxxxx"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Mensaje *
-                  </label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Mensaje *</label>
                   <Textarea
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Cuéntenos sobre su proyecto..."
                     rows={5}
                     required
@@ -170,14 +152,9 @@ const Contact = () => {
                       <Icon className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-foreground mb-1">
-                        {info.title}
-                      </h3>
+                      <h3 className="font-bold text-foreground mb-1">{info.title}</h3>
                       {info.link ? (
-                        <a
-                          href={info.link}
-                          className="text-muted-foreground hover:text-secondary transition-colors"
-                        >
+                        <a href={info.link} className="text-muted-foreground hover:text-secondary transition-colors">
                           {info.content}
                         </a>
                       ) : (
@@ -192,16 +169,10 @@ const Contact = () => {
             {/* WhatsApp Direct Button */}
             <Card className="bg-gradient-to-br from-secondary to-secondary/90 border-0 shadow-xl">
               <CardContent className="p-6 text-center">
-                <h3 className="font-bold text-foreground text-lg mb-2">
-                  Respuesta Inmediata
-                </h3>
-                <p className="text-foreground/80 mb-4">
-                  Chatea con nosotros por WhatsApp
-                </p>
+                <h3 className="font-bold text-foreground text-lg mb-2">Respuesta Inmediata</h3>
+                <p className="text-foreground/80 mb-4">Chatea con nosotros por WhatsApp</p>
                 <Button
-                  onClick={() =>
-                    window.open("https://wa.me/5493886011111", "_blank")
-                  }
+                  onClick={() => window.open("https://wa.me/5493886011111", "_blank")}
                   size="lg"
                   className="w-full bg-foreground text-background hover:bg-foreground/90"
                 >
