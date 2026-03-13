@@ -101,7 +101,7 @@ const MCLConstructoraGallery = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button
-                onClick={() => scrollToSection("contacto")}
+                onClick={() => scrollToSection("contacto")}  // navigates to homepage contact
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
               >
